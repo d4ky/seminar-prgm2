@@ -1,0 +1,14 @@
+C:\Users\Daky\source\repos\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\obj\Debug\net8.0\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju).GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daky\source\repos\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\obj\Debug\net8.0\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju).AssemblyInfoInputs.cache
+C:\Users\Daky\source\repos\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\obj\Debug\net8.0\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju).AssemblyInfo.cs
+C:\Users\Daky\source\repos\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\obj\Debug\net8.0\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju).csproj.CoreCompileInputs.cache
+C:\Users\Daky\source\repos\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\bin\Debug\net8.0\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju).exe
+C:\Users\Daky\source\repos\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\bin\Debug\net8.0\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju).deps.json
+C:\Users\Daky\source\repos\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\bin\Debug\net8.0\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju).runtimeconfig.json
+C:\Users\Daky\source\repos\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\bin\Debug\net8.0\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju).dll
+C:\Users\Daky\source\repos\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\bin\Debug\net8.0\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju).pdb
+C:\Users\Daky\source\repos\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\obj\Debug\net8.0\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju).dll
+C:\Users\Daky\source\repos\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\obj\Debug\net8.0\refint\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju).dll
+C:\Users\Daky\source\repos\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\obj\Debug\net8.0\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju).pdb
+C:\Users\Daky\source\repos\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\obj\Debug\net8.0\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju).genruntimeconfig.cache
+C:\Users\Daky\source\repos\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju)\obj\Debug\net8.0\ref\ůklůkjaglkj-hblkj-puijo§wewpqt§ihju).dll
