@@ -1,0 +1,14 @@
+C:\Users\Daky\source\repos\dosApp\dosApp\obj\Debug\net9.0\dosApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daky\source\repos\dosApp\dosApp\obj\Debug\net9.0\dosApp.AssemblyInfoInputs.cache
+C:\Users\Daky\source\repos\dosApp\dosApp\obj\Debug\net9.0\dosApp.AssemblyInfo.cs
+C:\Users\Daky\source\repos\dosApp\dosApp\obj\Debug\net9.0\dosApp.csproj.CoreCompileInputs.cache
+C:\Users\Daky\source\repos\dosApp\dosApp\bin\Debug\net9.0\dosApp.exe
+C:\Users\Daky\source\repos\dosApp\dosApp\bin\Debug\net9.0\dosApp.deps.json
+C:\Users\Daky\source\repos\dosApp\dosApp\bin\Debug\net9.0\dosApp.runtimeconfig.json
+C:\Users\Daky\source\repos\dosApp\dosApp\bin\Debug\net9.0\dosApp.dll
+C:\Users\Daky\source\repos\dosApp\dosApp\bin\Debug\net9.0\dosApp.pdb
+C:\Users\Daky\source\repos\dosApp\dosApp\obj\Debug\net9.0\dosApp.dll
+C:\Users\Daky\source\repos\dosApp\dosApp\obj\Debug\net9.0\refint\dosApp.dll
+C:\Users\Daky\source\repos\dosApp\dosApp\obj\Debug\net9.0\dosApp.pdb
+C:\Users\Daky\source\repos\dosApp\dosApp\obj\Debug\net9.0\dosApp.genruntimeconfig.cache
+C:\Users\Daky\source\repos\dosApp\dosApp\obj\Debug\net9.0\ref\dosApp.dll
