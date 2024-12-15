@@ -1,0 +1,14 @@
+C:\Users\Daky\source\repos\maturita\maturita\bin\Release\net9.0\maturita.exe
+C:\Users\Daky\source\repos\maturita\maturita\bin\Release\net9.0\maturita.deps.json
+C:\Users\Daky\source\repos\maturita\maturita\bin\Release\net9.0\maturita.runtimeconfig.json
+C:\Users\Daky\source\repos\maturita\maturita\bin\Release\net9.0\maturita.dll
+C:\Users\Daky\source\repos\maturita\maturita\bin\Release\net9.0\maturita.pdb
+C:\Users\Daky\source\repos\maturita\maturita\obj\Release\net9.0\maturita.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daky\source\repos\maturita\maturita\obj\Release\net9.0\maturita.AssemblyInfoInputs.cache
+C:\Users\Daky\source\repos\maturita\maturita\obj\Release\net9.0\maturita.AssemblyInfo.cs
+C:\Users\Daky\source\repos\maturita\maturita\obj\Release\net9.0\maturita.csproj.CoreCompileInputs.cache
+C:\Users\Daky\source\repos\maturita\maturita\obj\Release\net9.0\maturita.dll
+C:\Users\Daky\source\repos\maturita\maturita\obj\Release\net9.0\refint\maturita.dll
+C:\Users\Daky\source\repos\maturita\maturita\obj\Release\net9.0\maturita.pdb
+C:\Users\Daky\source\repos\maturita\maturita\obj\Release\net9.0\maturita.genruntimeconfig.cache
+C:\Users\Daky\source\repos\maturita\maturita\obj\Release\net9.0\ref\maturita.dll
