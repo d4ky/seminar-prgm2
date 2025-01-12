@@ -1,4 +1,4 @@
-﻿
+
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,9 +11,6 @@ using System.Windows.Shapes;
 
 namespace WpfApp1
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private byte R;
@@ -38,14 +35,25 @@ namespace WpfApp1
             e.Handled = !char.IsDigit(e.Text, 0);
         }
 
+        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
+        }
         private void RedTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            RedSlider.ValueChanged -= RedSlider_ValueChanged;
+            RedTextBox.TextChanged -= RedTextBox_TextChanged;
             if (int.TryParse(RedTextBox.Text, out int value))
             {
+                RedSlider.Value = value;
                 if (value <= 255)
                 {
                     R = (byte)value;
                     Rectangle.Fill = new SolidColorBrush(Color.FromRgb(R,G,B));
+                    
                     Hex.Text = $"#{R:X2}{G:X2}{B:X2}";
                 } else
                 {
@@ -57,17 +65,23 @@ namespace WpfApp1
                 }
             } else
             {
-                RedTextBox.Text = "";
+                RedTextBox.Clear();
                 R = 0;
+                RedSlider.Value = 0;
                 Rectangle.Fill = new SolidColorBrush(Color.FromRgb(R, G, B));
                 Hex.Text = $"#{R:X2}{G:X2}{B:X2}";
             }
-               
+            RedSlider.ValueChanged += RedSlider_ValueChanged;
+            RedTextBox.TextChanged += RedTextBox_TextChanged;
+            RedTextBox.CaretIndex = RedTextBox.Text.Length;
         }
         private void GreenTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            GreenSlider.ValueChanged -= GreenSlider_ValueChanged;
+            GreenTextBox.TextChanged -= GreenTextBox_TextChanged;
             if (int.TryParse(GreenTextBox.Text, out int value))
             {
+                GreenSlider.Value = value;
                 if (value <= 255)
                 {
                     G = (byte)value;
@@ -87,14 +101,21 @@ namespace WpfApp1
             {
                 GreenTextBox.Text = "";
                 G = 0;
+                GreenSlider.Value = 0;
                 Rectangle.Fill = new SolidColorBrush(Color.FromRgb(R, G, B));
                 Hex.Text = $"#{R:X2}{G:X2}{B:X2}";
             }
+            GreenSlider.ValueChanged += GreenSlider_ValueChanged;
+            GreenTextBox.TextChanged += GreenTextBox_TextChanged;
+            GreenTextBox.CaretIndex = GreenTextBox.Text.Length;
         }
         private void BlueTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            BlueSlider.ValueChanged -= BlueSlider_ValueChanged;
+            BlueTextBox.TextChanged -= BlueTextBox_TextChanged;
             if (int.TryParse(BlueTextBox.Text, out int value))
             {
+                BlueSlider.Value = value;
                 if (value <= 255)
                 {
                     B = (byte)value;
@@ -114,30 +135,41 @@ namespace WpfApp1
             {
                 BlueTextBox.Text = "";
                 B = 0;
+                BlueSlider.Value = 0;
                 Rectangle.Fill = new SolidColorBrush(Color.FromRgb(R, G, B));
                 Hex.Text = $"#{R:X2}{G:X2}{B:X2}";
             }
+            BlueSlider.ValueChanged += BlueSlider_ValueChanged;
+            BlueTextBox.TextChanged += BlueTextBox_TextChanged;
+            BlueTextBox.CaretIndex = BlueTextBox.Text.Length;
         }
+
         private void RedSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            RedTextBox.TextChanged -= RedTextBox_TextChanged;
             byte value = (byte)RedSlider.Value;
             RedTextBox.Text = value.ToString();
             R = value;
             Hex.Text = $"#{R:X2}{G:X2}{B:X2}";
+            RedTextBox.TextChanged += RedTextBox_TextChanged;
         }
         private void GreenSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            GreenTextBox.TextChanged -= GreenTextBox_TextChanged;
             byte value = (byte)GreenSlider.Value;
             GreenTextBox.Text = value.ToString();
             G = value;
             Hex.Text = $"#{R:X2}{G:X2}{B:X2}";
+            GreenTextBox.TextChanged += GreenTextBox_TextChanged;
         }
         private void BlueSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            BlueTextBox.TextChanged -= BlueTextBox_TextChanged;
             byte value = (byte)BlueSlider.Value;
             BlueTextBox.Text = value.ToString();
             B = value;
             Hex.Text = $"#{R:X2}{G:X2}{B:X2}";
+            GreenTextBox.TextChanged += GreenTextBox_TextChanged;
         }
     }
 }
