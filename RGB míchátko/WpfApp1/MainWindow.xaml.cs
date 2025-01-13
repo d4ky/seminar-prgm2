@@ -145,30 +145,24 @@ namespace WpfApp1
 
         private void RedSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            RedTextBox.TextChanged -= RedTextBox_TextChanged;
             byte value = (byte)RedSlider.Value;
             RedTextBox.Text = value.ToString();
             R = value;
             Hex.Text = $"#{R:X2}{G:X2}{B:X2}";
-            RedTextBox.TextChanged += RedTextBox_TextChanged;
         }
         private void GreenSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            GreenTextBox.TextChanged -= GreenTextBox_TextChanged;
             byte value = (byte)GreenSlider.Value;
             GreenTextBox.Text = value.ToString();
             G = value;
             Hex.Text = $"#{R:X2}{G:X2}{B:X2}";
-            GreenTextBox.TextChanged += GreenTextBox_TextChanged;
         }
         private void BlueSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            BlueTextBox.TextChanged -= BlueTextBox_TextChanged;
             byte value = (byte)BlueSlider.Value;
             BlueTextBox.Text = value.ToString();
             B = value;
             Hex.Text = $"#{R:X2}{G:X2}{B:X2}";
-            GreenTextBox.TextChanged += GreenTextBox_TextChanged;
         }
     }
 }
