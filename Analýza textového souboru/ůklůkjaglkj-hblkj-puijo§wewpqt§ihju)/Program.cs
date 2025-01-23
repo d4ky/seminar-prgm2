@@ -30,7 +30,7 @@ namespace ůklůkjaglkj_hblkj_puijo_wewpqt_ihju_
         {
             private readonly Dictionary<string, int> _words;
             private readonly string fileContent;
-            public int WordCount { get; private set; }
+            public int WordCount { get; }
             public int CharactersNoSpacesCount { get; private set; }   
             public int CharactersCount { get; private set; }
 
