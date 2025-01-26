@@ -1,0 +1,386 @@
+﻿<Window x:Class="Login.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800"
+        SizeChanged="Window_SizeChanged">
+    <Window.Resources>
+        <!-- chatgpt -->
+        <Style x:Key="VerificationBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Background" Value="White"/>
+
+            <Setter Property="CaretBrush" Value="Transparent"/>
+            <Setter Property="SelectionBrush" Value="Transparent"/>
+            
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#2196F3"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#2196F3"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SecondaryButtonStyle" TargetType="Button" 
+               BasedOn="{StaticResource PrimaryButtonStyle}">
+            <Setter Property="Background" Value="#E0E0E0"/>
+            <Setter Property="Foreground" Value="#333333"/>
+        </Style>
+    </Window.Resources>
+
+
+
+
+
+
+    <Grid>
+        <TabControl x:Name="tabControl">
+            <!-- Tab for Login -->
+            <TabItem Header="Login" x:Name="LoginTab">
+                <Grid Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Username -->
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Username" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" x:Name="LoginUsername" Margin="5,10,0,0" VerticalAlignment="Center" Width="150" TextChanged="LoginUsername_TextChanged"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="2" x:Name="LoginUsernameMessage" VerticalAlignment="Center" Visibility="Collapsed" Foreground="Red" FontStyle="Italic" Margin="7,0,0,0"/>
+
+                    <!-- Password -->
+                    <TextBlock Grid.Row="3" Grid.Column="1" Text="Password" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                    <PasswordBox Grid.Row="3" Grid.Column="2" x:Name="LoginPassword" Margin="5,10,0,0" VerticalAlignment="Center" Width="150" PasswordChanged="LoginPassword_PasswordChanged"/>
+
+                    <TextBlock Grid.Row="4" Grid.Column="2" x:Name="LoginPasswordMessage" VerticalAlignment="Center" Visibility="Collapsed" Foreground="Red" FontStyle="Italic" Margin="7,0,0,0"/>
+
+                    <!-- Login Button -->
+                    <Button Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="1" Content="Login" Width="100" VerticalAlignment="Center" Margin="20,20,0,0" HorizontalAlignment="Center" Click="LoginButton_Click"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Tab for Register -->
+            <TabItem Header="Register" x:Name="RegisterTab">
+                <Grid Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="2*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Username -->
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Username" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" x:Name="RegisterUsername" Margin="5,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextChanged="RegisterUsername_TextChanged"/>
+        
+                    <TextBlock Grid.Row="2" Grid.Column="2" x:Name="RegisterUsernameMessage" VerticalAlignment="Center" Visibility="Collapsed" Foreground="Red" FontStyle="Italic" Margin="7,0,0,0"/>
+                   
+                    <!-- Email -->
+                    <TextBlock Grid.Row="3" Grid.Column="1" Text="Email" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                    <TextBox Grid.Row="3" Grid.Column="2" x:Name="RegisterEmail" Margin="5,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextChanged="RegisterEmail_TextChanged"/>
+                    
+                    <TextBlock Grid.Row="4" Grid.Column="2" x:Name="RegisterEmailMessage" VerticalAlignment="Center" Visibility="Collapsed" Foreground="Red" FontStyle="Italic" Margin="7,0,0,0"/>
+                    <!-- Password -->
+                    <TextBlock Grid.Row="5" Grid.Column="1" Text="Password" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                    <PasswordBox Grid.Row="5" Grid.Column="2" x:Name="RegisterPassword" Margin="5,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" PasswordChanged="RegisterPassword_PasswordChanged"/>
+
+                    <TextBlock Grid.Row="6" Grid.Column="2" x:Name="RegisterPasswordMessage" VerticalAlignment="Center" Visibility="Collapsed" Foreground="Red" FontStyle="Italic" Margin="7,0,0,0"/>
+
+                    <!-- Repeat Password -->
+                    <TextBlock Grid.Row="7" Grid.Column="1" Text="Repeat Password" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                    <PasswordBox Grid.Row="7" Grid.Column="2" x:Name="RegisterRepeatPassword" Margin="5,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" PasswordChanged="RegisterRepeatPassword_PasswordChanged"/>
+
+                    <TextBlock Grid.Row="8" Grid.Column="2" x:Name="RegisterRepeatMessage" VerticalAlignment="Center" Visibility="Collapsed" Foreground="Red" FontStyle="Italic" Margin="7,0,0,0"/>
+
+                    <!-- Additional Info -->
+                    <TextBlock Grid.Row="9" Grid.Column="1" Text="Additional Info" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                    <TextBox Grid.Row="9" Grid.Column="2" x:Name="RegisterAdditionalInfo" Margin="5,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextChanged="RegisterAdditionalInfo_TextChanged"/>
+
+                    <TextBlock Grid.Row="10" Grid.Column="2" x:Name="RegisterAdditionalMessage" VerticalAlignment="Center" Visibility="Collapsed" Foreground="Red" FontStyle="Italic" Margin="7,0,0,0"/>
+
+                    <!-- Upload Image Button -->
+                    <Button Grid.Row="11" Grid.Column="2" Content="Upload Image" Width="100" VerticalAlignment="Center" Margin="20,10,0,0" HorizontalAlignment="Left" Click="UploadImageButton_Click"/>
+
+                    <!-- Image Preview -->
+                    <Ellipse x:Name="ImagePreview" Width="100" Height="100" Grid.Row="11" Grid.Column="1" HorizontalAlignment="Center" Visibility="Collapsed" >
+                        <Ellipse.Fill>
+                            <ImageBrush x:Name="ImagePreviewBrush" Stretch="Fill" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+
+
+
+                    <StackPanel x:Name="SwitchPanel" Grid.Row="12" Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal" Visibility="Collapsed">
+                        <Label Content="Stretch"></Label>
+                        <CheckBox x:Name="ToggleSwitch" Width="40" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Checked="ToggleSwitch_Checked" Unchecked="ToggleSwitch_Unchecked" IsChecked="False">
+                            <CheckBox.Template>
+                                <ControlTemplate TargetType="CheckBox">
+                                    <Grid Width="40" Height="20">
+                                        <!-- Background -->
+                                        <Border x:Name="SwitchBackground" 
+                                CornerRadius="10" 
+                                Background="#DDD" 
+                                BorderBrush="#CCC" 
+                                BorderThickness="1" />
+
+                                        <!-- Thumb -->
+                                        <Ellipse x:Name="SwitchThumb" 
+                                 Width="18" 
+                                 Height="18" 
+                                 Fill="White" 
+                                 Margin="1" 
+                                 HorizontalAlignment="Left" />
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <!-- On State -->
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter TargetName="SwitchThumb" Property="HorizontalAlignment" Value="Right" />
+                                        </Trigger>
+
+                                        <!-- Hover Effect -->
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="SwitchBackground" Property="BorderBrush" Value="Gray" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </CheckBox.Template>
+                        </CheckBox>
+                        <Label Content="Crop"></Label>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="12" Grid.Column="2" x:Name="RegisterImageMessage" VerticalAlignment="Center" Visibility="Collapsed" Foreground="Red" FontStyle="Italic" Margin="7,0,0,0"/>
+
+                    <!-- Register Button -->
+                    <Button Grid.Row="13" Grid.ColumnSpan="2" Grid.Column="1" Content="Register" Width="100" VerticalAlignment="Center" Margin="20,10,0,0" HorizontalAlignment="Center" Click="RegisterButton_Click"/>
+                </Grid>
+            </TabItem>
+
+
+            <TabItem Header="Account" x:Name="AccountTab" Visibility="Collapsed">
+                <Grid Margin="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+                    <Button Content="Sign Out" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Click="SignOut_Click"></Button>
+                    
+                    
+                    <Ellipse x:Name="ProfilePicture" Width="200" Height="200" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+                        <Ellipse.Fill>
+                            <ImageBrush x:Name="ProfilePictureBrush" Stretch="Fill" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <TextBlock x:Name="AccountUsername" FontSize="15" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+                    <TextBlock x:Name="AccountAdditionalInfo" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+                    
+                </Grid>
+                
+                
+            </TabItem>
+
+            <TabItem x:Name="AccountSettingsTab" Header="Settings" Visibility="Collapsed">
+                <Grid Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Content="Sign Out" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Click="SignOut_Click"></Button>
+
+                    <!-- Username -->
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Old Password" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                    <PasswordBox Grid.Row="1" Grid.Column="2" x:Name="AccountSettingsOldPassword" Margin="5,10,0,0" VerticalAlignment="Center" Width="150" PasswordChanged="ChangePasswordOld_PasswordChanged"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="2" x:Name="AccountSettingsOldMessage" VerticalAlignment="Center" Visibility="Collapsed" Foreground="Red" FontStyle="Italic" Margin="7,0,0,0"/>
+
+                    <!-- Password -->
+                    <TextBlock Grid.Row="3" Grid.Column="1" Text="New Password" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                    <PasswordBox Grid.Row="3" Grid.Column="2" x:Name="AccountSettingsNewPassword" Margin="5,10,0,0" VerticalAlignment="Center" Width="150" PasswordChanged="ChangePasswordNew_PasswordChanged"/>
+
+                    <TextBlock Grid.Row="4" Grid.Column="2" x:Name="AccountSettingsNewMessage" VerticalAlignment="Center" Visibility="Collapsed" Foreground="Red" FontStyle="Italic" Margin="7,0,0,0"/>
+
+
+
+                    <TextBlock Grid.Row="5" Grid.Column="1" Text="Repeat Password" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                    <PasswordBox Grid.Row="5" Grid.Column="2" x:Name="AccountSettingsRepeatPassword" Margin="5,10,0,0" VerticalAlignment="Center" Width="150" PasswordChanged="ChangePasswordRepeat_PasswordChanged"/>
+
+                    <TextBlock Grid.Row="6" Grid.Column="2" x:Name="AccountSettingsRepeatMessage" VerticalAlignment="Center" Visibility="Collapsed" Foreground="Red" FontStyle="Italic" Margin="7,0,0,0"/>
+
+
+
+                    <!-- Login Button -->
+                    <Button Grid.Row="7" Grid.ColumnSpan="2" Grid.Column="1" Content="Change Password" Width="100" VerticalAlignment="Center" Margin="20,20,0,0" HorizontalAlignment="Center" Click="ChangePasswordButton_Click"/>
+
+                </Grid>
+            </TabItem>
+
+
+            <!-- chatgpt -->
+            <TabItem x:Name="VerificationTab" Header="Verify Email" Visibility="Collapsed">
+                    <Grid Margin="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Title -->
+                        <TextBlock Grid.Row="0" Text="Verify Your Email" 
+                   FontSize="18" FontWeight="Bold" Margin="0,0,0,20"
+                   HorizontalAlignment="Center"/>
+
+                        <!-- Verification Code Boxes -->
+                        <UniformGrid Grid.Row="1" Columns="6" Margin="0,0,0,20"
+                     HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBox x:Name="CodeBox1" Width="40" Height="40" Margin="5"
+                     Style="{StaticResource VerificationBoxStyle}"
+                     GotFocus="VerificationBox_GotFocus"
+                     LostFocus="VerificationBox_LostFocus"
+                                     TextChanged="VerificationBox_TextChanged"
+                                     PreviewTextInput="VerificationBox_PreviewTextInput"
+                                     PreviewKeyDown="VerificationBox_PreviewKeyDown"
+                     MaxLength="1" TextAlignment="Center"/>
+                            <TextBox x:Name="CodeBox2" Width="40" Height="40" Margin="5"
+                     Style="{StaticResource VerificationBoxStyle}"
+                     GotFocus="VerificationBox_GotFocus"
+                     LostFocus="VerificationBox_LostFocus"
+                                     TextChanged="VerificationBox_TextChanged"
+                                     PreviewTextInput="VerificationBox_PreviewTextInput"
+                                     PreviewKeyDown="VerificationBox_PreviewKeyDown"
+                     MaxLength="1" TextAlignment="Center"/>
+                            <TextBox x:Name="CodeBox3" Width="40" Height="40" Margin="5"
+                     Style="{StaticResource VerificationBoxStyle}"
+                     GotFocus="VerificationBox_GotFocus"
+                     LostFocus="VerificationBox_LostFocus"
+                                     TextChanged="VerificationBox_TextChanged"
+                                     PreviewTextInput="VerificationBox_PreviewTextInput"
+                                     PreviewKeyDown="VerificationBox_PreviewKeyDown"
+                     MaxLength="1" TextAlignment="Center"/>
+                            <TextBox x:Name="CodeBox4" Width="40" Height="40" Margin="5"
+                     Style="{StaticResource VerificationBoxStyle}"
+                     GotFocus="VerificationBox_GotFocus"
+                     LostFocus="VerificationBox_LostFocus"
+                                     TextChanged="VerificationBox_TextChanged"
+                                     PreviewTextInput="VerificationBox_PreviewTextInput"
+                                     PreviewKeyDown="VerificationBox_PreviewKeyDown"
+                     MaxLength="1" TextAlignment="Center"/>
+                            <TextBox x:Name="CodeBox5" Width="40" Height="40" Margin="5"
+                     Style="{StaticResource VerificationBoxStyle}"
+                     GotFocus="VerificationBox_GotFocus"
+                     LostFocus="VerificationBox_LostFocus"
+                                     TextChanged="VerificationBox_TextChanged"
+                                     PreviewTextInput="VerificationBox_PreviewTextInput"
+                                     PreviewKeyDown="VerificationBox_PreviewKeyDown"
+                     MaxLength="1" TextAlignment="Center"/>
+                            <TextBox x:Name="CodeBox6" Width="40" Height="40" Margin="5"
+                     Style="{StaticResource VerificationBoxStyle}"
+                     GotFocus="VerificationBox_GotFocus"
+                     LostFocus="VerificationBox_LostFocus"
+                                     TextChanged="VerificationBox_TextChanged"
+                                     PreviewTextInput="VerificationBox_PreviewTextInput"
+                                     PreviewKeyDown="VerificationBox_PreviewKeyDown"
+                     MaxLength="1" TextAlignment="Center"/>
+                        </UniformGrid>
+
+                        <!-- Buttons -->
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" 
+                    HorizontalAlignment="Center" Margin="0,20">
+                            <Button Content="Verify Code" Width="120" Margin="10,0"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Click="VerifyCode_Click"/>
+                            <Button Content="Resend Code" Width="120" Margin="10,0"
+                    Style="{StaticResource SecondaryButtonStyle}"
+                    Click="ResendCode_Click"/>
+                        </StackPanel>
+
+                        <!-- Status Message -->
+                        <TextBlock Grid.Row="4" x:Name="VerificationStatus" Margin="0,20"
+                   HorizontalAlignment="Center" TextWrapping="Wrap"
+                   FontSize="14" Foreground="Gray"/>
+                    </Grid>
+                </TabItem>
+
+        </TabControl>
+        
+        
+    </Grid>
+</Window>
